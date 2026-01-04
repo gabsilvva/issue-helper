@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+@theme inline {
+  --font-sans: var(--font-lato);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  * {
+    color: var(--black);
+  }
+}
