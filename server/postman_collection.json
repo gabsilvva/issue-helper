@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "Issue Helper API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "issue-helper-api"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:7777/api" },
+    { "key": "userId", "value": "" },
+    { "key": "ticketUuid", "value": "" },
+    { "key": "serviceUuid", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao@example.com\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/user/signup", "host": ["{{baseUrl}}"], "path": ["user", "signup"] }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"joao@example.com\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/user/login", "host": ["{{baseUrl}}"], "path": ["user", "login"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ticket",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Computador não liga\",\n  \"description\": \"O computador não liga após a queda de energia\",\n  \"category\": 2,\n  \"service\": \"Reparo de hardware\",\n  \"userId\": \"{{userId}}\",\n  \"additionalServices\": [\n    { \"name\": \"Troca de fonte\", \"price\": \"120\" }\n  ]\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/ticket", "host": ["{{baseUrl}}"], "path": ["ticket"] }
+          }
+        },
+        {
+          "name": "List All (grouped by status)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/ticket", "host": ["{{baseUrl}}"], "path": ["ticket"] }
+          }
+        },
+        {
+          "name": "Get One",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/ticket/{{ticketUuid}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ticket", "{{ticketUuid}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Service",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Formatação de notebook\",\n  \"price\": 150,\n  \"userId\": \"{{userId}}\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/service", "host": ["{{baseUrl}}"], "path": ["service"] }
+          }
+        },
+        {
+          "name": "List All (grouped by status)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/service", "host": ["{{baseUrl}}"], "path": ["service"] }
+          }
+        },
+        {
+          "name": "Get One",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/service/{{serviceUuid}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["service", "{{serviceUuid}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

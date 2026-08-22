@@ -1,0 +1,53 @@
+@layer components {
+  .t-xl {
+    @apply font-bold text-2xl;
+  }
+
+  .t-lg {
+    @apply font-bold text-xl;
+  }
+
+  .t-md {
+    @apply font-bold text-base;
+  }
+
+  .t-sm {
+    @apply font-normal text-sm;
+  }
+
+  .t-xs {
+    @apply font-normal text-xs;
+  }
+
+  .t-xxs {
+    @apply font-bold text-[10px];
+  }
+}
+
+@layer base {
+  * {
+    @apply leading-[140%] text-gray-100;
+  }
+
+  h1,
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  h5,
+  h6 {
+    @apply text-base;
+  }
+
+  p {
+    @apply text-sm text-gray-400;
+  }
+}
