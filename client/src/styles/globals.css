@@ -7,6 +7,11 @@
   --font-sans: var(--font-lato);
 }
 
+@theme {  
+  --spacing-pd: 48px;
+  --spacing-pm: 24px;
+}
+
 @layer base {
   ::selection {
     @apply bg-gray-200 text-gray-600;

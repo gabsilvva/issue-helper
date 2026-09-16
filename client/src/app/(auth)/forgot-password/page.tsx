@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Box from "@/app/(auth)/_components/Box";
 import Button from "@/components/button/Button";
 import Form from "@/components/form/Form";
-import Link from "@/components/link/Link";
+import ButtonFlat from "@/components/button/Flat";
+
+export const metadata: Metadata = {
+  title: "Esqueci minha senha",
+};
 
 export default async function Page() {
   return (
@@ -21,7 +26,7 @@ export default async function Page() {
           <Button submit full>Enviar</Button>
         </Form>
         <div className="mt-6">
-          <Link href="/login">Faça login</Link>
+          <ButtonFlat href="/login">Faça login</ButtonFlat>
         </div>
       </Box>
     </>

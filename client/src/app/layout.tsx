@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "@styles/globals.css";
+import Nav from "@/components/nav/Nav";
 
 const font = Lato({
   weight: ["400", "700"],
@@ -9,7 +10,10 @@ const font = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Issue Helper",
+  title: {
+    template: "%s | Issue Helper",
+    default: "Issue Helper",
+  },
   description: "Need help?",
   icons: {
     icon: "utils/favicon.ico",
@@ -26,7 +30,14 @@ export default function RootLayout({
       <body
         className={`${font.variable} antialiased`}
       >
-        <main>{children}</main>
+        <div className="h-screen bg-black flex">
+          <Nav />
+          <main className="flex-2 pt-3 h-full">
+            <div className="h-full overflow-y-auto bg-white rounded-tl-md rounded-bl-md p-pd max-sm:p-pm">
+              {children}
+            </div>
+          </main>
+        </div>
       </body>
     </html>
   );

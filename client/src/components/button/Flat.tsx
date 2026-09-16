@@ -4,14 +4,12 @@ type Props = {
   href?: string;
   blank?: boolean;
   submit?: boolean;
-  full?: boolean;
   light?: boolean;
   children: React.ReactNode;
-  onClick: () => void;
 };
 
-export default function Button({ href, blank, submit, full, light, children, onClick }: Props) {
-  const className = `px-6 py-3 rounded-md t-sm inline-flex items-center justify-center gap-2 text-center font-bold ${full ? "w-full" : ""} ${light ? "bg-gray-500 hover:bg-gray-600 text-gray-200" : "bg-gray-200 hover:bg-gray-100 text-white"}`;
+export default function ButtonFlat({ href, blank, submit, light, children }: Props) {
+  const className= `t-sm inline-flex items-center gap-2 font-bold underline ${light ? "text-white" : "text-gray-200"}`;
 
   if (href || blank) {
     return (
@@ -29,7 +27,6 @@ export default function Button({ href, blank, submit, full, light, children, onC
     <button 
       type={submit ? "submit" : "button"}
       className={className}
-      onClick={onClick}
     >
       {children}
     </button>
